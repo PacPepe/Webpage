@@ -94,12 +94,63 @@
         }
 
         footer a:hover {
-            color: yellow;
+            color: #ffff00;
+        }
+        .banner {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 9999;
+        }
+        .banner-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+        .banner-title {
+            font-size: 36px;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+        .banner-message {
+            font-size: 24px;
+            color: #ffff00;
+            margin-bottom: 20px;
+        }
+        .banner-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #fff;
+            color: #000;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .banner-button:hover {
+            background-color: #000;
+            color: #fff;
         }
     </style>    
 </head>
 <body>
 	<div class="container">
+        <div class="banner">
+            <div class="banner-content">
+                <h2 class="banner-title">EAT THEM PEPEs</h2>
+                <p class="banner-message">Hey there! Are you a fan of the Pepe meme and Pacman? Well, we've got something special for you - introducing PacPepe, the hottest meme project on Arbitrum!
+                    It's all about Pac-Man chomping down on some Pepes and making you LOL. But that's not all - Your high score gets stored on a contract, and you compete with other people on the leaderboard. After every 3 days, a snapshot will be taken, and the top 3 wallets on the leaderboard will be airdropped a % of the total supply from the Distributor/PacHighScores contract with a positive-skewed distribution. (shhh, it's a secret).
+                    Eligibility criteria: You gotta hold at least 69,420,000,000 $PECE tokens to be eligible to win. That way, only the true PacPepe fanatics get to claim their prize. And, the project's ownership is renounced and liquidity locked, so the value is protected.
+                    But the fun doesn't stop there - PacPepe is all about community ownership! The Distributor/PacHighScore smart contract contains 25% of the total token supply, which is designed in such a way that it could airdrop a random percentage of the supply as a surprise. So the future is in your hands, peeps.
+                    So, whatcha waiting for? Come join the PacPepe community, play some Pacman, and claim your surprise after the snapshot is taken. It's a combo of humor, gaming, and rewards, so let's get chompin'!</p>
+                <a href="#" class="banner-button">Close</a>
+            </div>
+        </div>
         <div id="shim">shim for font face</div>
         <h1>PacPepe.xyz</h1>
         <p style="text-align:center;">Eat them Pepes</p>
@@ -117,6 +168,16 @@
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/web3@1.6.1/dist/web3.min.js"></script>
+    <script>
+        var banner = document.querySelector('.banner');
+        var closeButton = document.querySelector('.banner-button');
+        closeButton.addEventListener('click', function() {
+            banner.style.display = 'none';
+        });
+        window.addEventListener('load', function() {
+            banner.style.display = 'block';
+        });
+    </script>
     <script type="text/javascript">
 		/*jslint browser: true, undef: true, eqeqeq: true, nomen: true, white: true */
 /*global window: false, document: false */
@@ -1450,7 +1511,7 @@ document.getElementById('connectWallet').addEventListener('click', connectWallet
 	</script>
     <footer>
         <a href="https://github.com/PacPepe">Github</a>
-        <a href="#">Twitter</a>
+        <a href="https://t.me/pacpepexyz">Telegram</a>
         <a href="#">Dexscreener</a>
         <a href="https://github.com/PacPepe/Contracts">Contracts</a>
     </footer>
